@@ -8,7 +8,6 @@
 
 <h2>Tworzenie nowego klienta</h2>
 
-<!--/*@thymesVar id="client" type="com.example.bestcrmintheunivers.entities.Client"*/-->
 <form method="post" th:action="@{/client/save}" th:object="${client}">
     <input id="name" placeholder="nazwa" th:field="*{name}" type="text">
     <input id="address" placeholder="address" th:field="*{address}" type="text">

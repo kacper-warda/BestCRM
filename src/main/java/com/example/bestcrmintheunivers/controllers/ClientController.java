@@ -5,8 +5,9 @@ import com.example.bestcrmintheunivers.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
+@RequestMapping("/client")
 @Controller
 public class ClientController {
 
@@ -29,14 +30,16 @@ public class ClientController {
         return "client/add";
     }
 
-    @GetMapping("/save")
-    public String save() {
-        Client client = new Client();
-        client.setName("Logintegra");
-        client.setAddress("Lęborska 3b");
-        client.setCountry("Poland");
-        client.setEmail("info@logintegra.com");
+    @PostMapping("/save")
+    public String save(@ModelAttribute Client client) {
         this.clientRepository.save(client);
-        return "redirect:/";
+        return "redirect:/client/";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        System.out.println("usuń klienta o id " + id);
+        this.clientRepository.deleteById(id);
+        return "redirect:/client/";
     }
 }

@@ -14,6 +14,7 @@ tu będzie lista klientów
         <th>Adres</th>
         <th>Telefon</th>
         <th>Email</th>
+        <th>ostatni kontakt</th>
     </tr>
     <!--/*@thymesVar id="client" type="com.example.bestcrmintheunivers.entities.Client"*/-->
     <tr th:each="client: ${clients}">
@@ -22,6 +23,8 @@ tu będzie lista klientów
         <td th:text="${client.address}"></td>
         <td th:text="${client.phone}"></td>
         <td th:text="${client.email}"></td>
+        <td th:text="${client.lastContact}"></td>
+        <td><a th:href="@{/client/delete/{id}(id=${client.id})}">usuń</a></td>
     </tr>
 </table>
 
