@@ -25,6 +25,14 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private Set<Person> employees;
 
+    public Set<Person> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Person> employees) {
+        this.employees = employees;
+    }
+
     public Long getId() {
         return id;
     }

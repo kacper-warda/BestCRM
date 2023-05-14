@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Tworzenie nowego klienta</h2>
+
+<!--/*@thymesVar id="client" type="com.example.bestcrmintheunivers.entities.Client"*/-->
+<form method="post" th:action="@{/client/save}" th:object="${client}">
+    <input id="name" placeholder="nazwa" th:field="*{name}" type="text">
+    <input id="address" placeholder="address" th:field="*{address}" type="text">
+    <input id="phone" placeholder="phone" th:field="*{phone}" type="text">
+    <input id="email" placeholder="email" th:field="*{email}" type="text">
+    <input id="country" placeholder="country" th:field="*{country}" type="text">
+    <input id="business" placeholder="business" th:field="*{business}" type="text">
+    <input id="lastContact" placeholder="lastContact" th:field="*{lastContact}" type="date">
+    <button type="submit">Zapisz</button>
+</form>
+
+</body>
+</html>
